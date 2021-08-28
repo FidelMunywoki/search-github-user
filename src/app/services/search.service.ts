@@ -11,9 +11,9 @@ import { environment } from 'src/environments/environment';
 export class SearchService {
  
 
-  users: UserUrl[];
-  repos: RepoUrl ;
-  apiUrl: 'https://api.github.com/users/';
+  users!: UserUrl[];
+  repos!: RepoUrl;
+  apiUrl!: 'https://api.github.com/users/';
   
 
   constructor(private http: HttpClient) { }

@@ -10,8 +10,8 @@ import { SearchService } from 'src/app/services/search.service';
 })
 export class UsersComponent implements OnInit {
 
-  repos : RepoUrl;
-  users : UserUrl[];
+  repos!: RepoUrl;
+  users!: UserUrl[];
 
 
 
