@@ -9,3 +9,35 @@
       </nav>
  </div>
 
+<!-- Trialllll -->
+
+<div class="profile-container" *ngFor='let user of users'>
+    <div class="profile-content">
+        
+        <div class="pic">
+            <div class="image-container">
+               <a href="{{ user.html_url }}" target="_blank"><img src="{{ user.avatar_url }}" alt="" ></a>
+            </div>
+            <a href="{{ user.html_url }}" target="_blank" style="text-decoration: none;"><h2 style="font-weight: bold; margin-bottom: 5px;">{{ user.name }}</h2></a>
+            <p style="font-size: 14px;">@{{ user.login }}</p>
+        </div>
+        <div class="summary">
+            <div class="content">
+                <span>{{ user.followers }}</span>
+                <span>Followers</span>
+            </div>
+            <div class="content">
+                <span>{{ user.following }}</span>
+                <span>Following</span>
+            </div>
+            <div class="profile-details">
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> {{ user.location }}</li>
+                    <li><i class="fas fa-quote-left"></i> "{{ user.bio }}"</li>
+                    <li><i class="fab fa-github-alt"></i> {{ user.public_repos }} Repositories</li>
+                    <li><i class="fas fa-calendar"></i> {{ user.created_at | date: "mediumDate" }}</li>
+                </ul>
+            </div>  
+        </div>   
+    </div>
+</div>
