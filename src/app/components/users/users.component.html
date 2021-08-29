@@ -4,40 +4,86 @@
           <a class="navbar-brand ms-4">FindMe | GitHub</a>
          <div class="search">
              <app-search-form></app-search-form>
+             
          </div>
         </div>
       </nav>
  </div>
 
 <!-- Trialllll -->
+<div class="container text-center">
+    <div class="" *ngFor='let user of users'>
+        <div class="">
+            
+            <div class="display-image">
+                <div class="profile-pic h-75 d-inline-block">
+                   <a href="{{ user.html_url }}" target="_blank"><img  class="rounded-circle mt-2 h-100" src="{{ user.avatar_url }}" alt="" ></a>
+                </div>
+                <div class="mt-1">
+                    <a href="{{ user.html_url }}" target="_blank" style="text-decoration: none;"><h2 style="font-weight: bold; margin-bottom: 5px;">{{ user.name }}</h2></a>
+                    <p style="font-size: 14px;">@{{ user.login }}</p>
 
-<div class="profile-container" *ngFor='let user of users'>
-    <div class="profile-content">
-        
-        <div class="pic">
-            <div class="image-container">
-               <a href="{{ user.html_url }}" target="_blank"><img src="{{ user.avatar_url }}" alt="" ></a>
+                </div>
+                
             </div>
-            <a href="{{ user.html_url }}" target="_blank" style="text-decoration: none;"><h2 style="font-weight: bold; margin-bottom: 5px;">{{ user.name }}</h2></a>
-            <p style="font-size: 14px;">@{{ user.login }}</p>
+            <div class="summary ">
+                <div class="row m-0">
+                    <div class="content col-md-6 bg-brown">
+                        <span class="me-3">{{ user.followers }}</span>
+                        <span>Followers</span>
+                    </div>
+                    <div class="content col-md-6 bg-brown1">
+                        <span class="me-3">{{ user.following }}</span>
+                        <span>Following</span>
+                    </div>
+
+                </div>
+
+                <div class="card text-start" style="width: 100%">
+                    
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item fas fa-map-marker-alt"> {{ user.location }}</li>
+                      <li class="list-group-item fas fa-quote-left"> "{{ user.bio }}"</li>
+                      <li class="list-group-item fab fa-github-alt"> {{ user.public_repos }} Repositories</li>
+                      <li class="list-group-item fas fa-calendar ">  {{ user.created_at | date: "mediumDate" }}</li>
+                    </ul>
+                  </div>
+                
+            </div>   
         </div>
-        <div class="summary">
-            <div class="content">
-                <span>{{ user.followers }}</span>
-                <span>Followers</span>
-            </div>
-            <div class="content">
-                <span>{{ user.following }}</span>
-                <span>Following</span>
-            </div>
-            <div class="profile-details">
-                <ul>
-                    <li><i class="fas fa-map-marker-alt"></i> {{ user.location }}</li>
-                    <li><i class="fas fa-quote-left"></i> "{{ user.bio }}"</li>
-                    <li><i class="fab fa-github-alt"></i> {{ user.public_repos }} Repositories</li>
-                    <li><i class="fas fa-calendar"></i> {{ user.created_at | date: "mediumDate" }}</li>
-                </ul>
-            </div>  
-        </div>   
     </div>
+    
+
 </div>
+
+
+<!-- getting the Repos -->
+
+<div class="container">
+    <div class="repo-title text-center mt-4" style="padding-bottom: 1%;">
+        <h3> My Repositories</h3>
+    </div>
+    <div class="row">
+        <div class="col-md-3 mt-4 text-center"  *ngFor='let repo of repos'>
+          <div class="card">
+            <div class="card-body">
+                <a href="{{ repo.html_url }}" class="card-link" target="_blank"><img src="https://cdn.afterdawn.fi/v3/news/original/github-logo.png" alt="" style="width: 150px; height: auto; padding-top: 10px;"></a>
+              <h5 class="card-title">{{ repo.name }}</h5>
+              <p class="card-text"></p>
+              <p>by: <strong>{{ repo.owner.login }}</strong></p>
+              <p>language: <strong>{{ repo.language }}</strong></p>
+              <p><strong>{{ repo.created_at | date: 'mediumDate' }}</strong></p>
+              <a href="{{ repo.html_url }}" class="btn bg-brown">See on GitHub</a>
+            </div>
+          </div>
+          <div style="padding: 5px 0;" class="bg-brown1">
+            <span style="margin: 0 10%;" class="label label-default"><i class="far fa-star"></i> {{repo.watchers}} </span>
+            <span style="margin: 0 10%;" class="label label-primary"><i class="fas fa-code-branch"></i> {{repo.forks}} </span>
+        </div>
+        </div>
+      </div>
+  
+</div>
+
+
+

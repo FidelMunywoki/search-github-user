@@ -1,0 +1,17 @@
+.display-image {
+    background-color: grey;
+    height: 40vh;
+}
+
+.profile-pic {
+    height: 75%;
+}
+
+.bg-brown {
+    background-color: rgba(139,69,19,0.4);
+}
+
+.bg-brown1 {
+    background-color: rgba(139,69,19,0.8);
+
+}
