@@ -9,11 +9,11 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class SearchService {
- 
+  
 
   users!: UserUrl[];
   repos!: RepoUrl;
-  apiUrl!: 'https://api.github.com/users/';
+  
   
 
   constructor(private http: HttpClient) { }
@@ -21,7 +21,7 @@ export class SearchService {
   searchUser (searchTearm: string) {
     let promise = new Promise<void>((resolve, reject) => {
 
-      this.http.get<any>(this.apiUrl + searchTearm + '?access_token='+ environment.apiKey).toPromise().then(
+      this.http.get<any>('https://api.github.com/users/' + searchTearm + '?access_token='+ environment.apiKey).toPromise().then(
         (results) => {
           this.users = [];
           this.users.push(results);
@@ -49,7 +49,7 @@ export class SearchService {
     }
 
     let promise = new Promise<void>((resolve, reject) => {
-      this.http.get<results>(this.apiUrl + searchTerm+ '/repos?access_token='+environment.apiKey).toPromise().then(
+      this.http.get<results>('https://api.github.com/users/' + searchTerm+ '/repos?access_token='+environment.apiKey).toPromise().then(
         (results) => {
           this.repos;
           this.repos = results;

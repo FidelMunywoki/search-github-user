@@ -1,7 +1,7 @@
-import { Component, EventEmitter, Input,OnInit } from '@angular/core';
-import { RepoUrl } from 'src/app/model/repo-url';
+import { Component,OnInit } from '@angular/core';
 import { UserUrl } from 'src/app/model/user-url';
 import { SearchService } from 'src/app/services/search.service';
+
 
 @Component({
   selector: 'app-users',
@@ -10,12 +10,14 @@ import { SearchService } from 'src/app/services/search.service';
 })
 export class UsersComponent implements OnInit {
 
-  repos!: RepoUrl;
+  repos : any;
   users!: UserUrl[];
+ 
+ 
 
 
 
-  constructor(private search: SearchService) { }
+  constructor(private search: SearchService) {}
 
   ngOnInit(): void {
 
@@ -29,6 +31,7 @@ export class UsersComponent implements OnInit {
     this.search.searchUser(searchTerm).then(
       () => {
         this.users = this.search.users;
+        
       },
       (error) => {
         console.log(error)
@@ -39,6 +42,7 @@ export class UsersComponent implements OnInit {
 
   //search Repos
   searchRepos(searchTerm: string) {
+    
     this.search.searchRepo(searchTerm).then(
       () => {
         this.repos = this.search.repos;
@@ -49,4 +53,13 @@ export class UsersComponent implements OnInit {
     )
   }
 
+
+  // search() {
+    
+  // }
+
+  
+ 
+
 }
+
