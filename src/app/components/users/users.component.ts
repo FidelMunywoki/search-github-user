@@ -27,8 +27,8 @@ export class UsersComponent implements OnInit {
 
   //search user
 
-  searchUsers(searchTerm: string) {
-    this.search.searchUser(searchTerm).then(
+  searchUsers(userName: string) {
+    this.search.searchUser(userName).then(
       () => {
         this.users = this.search.users;
         
@@ -41,9 +41,9 @@ export class UsersComponent implements OnInit {
 
 
   //search Repos
-  searchRepos(searchTerm: string) {
+  searchRepos(userName: string) {
     
-    this.search.searchRepo(searchTerm).then(
+    this.search.searchRepo(userName).then(
       () => {
         this.repos = this.search.repos;
       },
@@ -54,9 +54,12 @@ export class UsersComponent implements OnInit {
   }
 
 
-  // search() {
-    
-  // }
+  searchGitHubUser(emitSearch: any) {
+    console.log(emitSearch)
+    this.searchUsers(emitSearch);
+    this.searchRepos(emitSearch);
+
+  }
 
   
  
