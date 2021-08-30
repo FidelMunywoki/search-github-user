@@ -43,7 +43,7 @@ https://fidelmunywoki.github.io/search-github-user/
 
 ## Known Bugs
 
-* We are working on making the page dynamic
+* We are working on not found component
 
 ## Contact Information 
 
