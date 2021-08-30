@@ -38,7 +38,7 @@ export class SearchService {
   }
 
 
-  searchRepo(searchTerm: string) {
+  searchRepo(userName: string) {
     interface results {
       login: string;
       username: string;
@@ -49,7 +49,7 @@ export class SearchService {
     }
 
     let promise = new Promise<void>((resolve, reject) => {
-      this.http.get<results>('https://api.github.com/users/' + searchTerm+ '/repos?access_token='+environment.apiKey).toPromise().then(
+      this.http.get<results>('https://api.github.com/users/' + userName+ '/repos?access_token='+environment.apiKey).toPromise().then(
         (results) => {
           this.repos;
           this.repos = results;

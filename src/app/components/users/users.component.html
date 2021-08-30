@@ -3,7 +3,7 @@
         <div class="container-fluid">
           <a class="navbar-brand ms-4">FindMe | GitHub</a>
          <div class="search">
-             <app-search-form></app-search-form>
+             <app-search-form (emitSearch)= 'searchGitHubUser($event)'></app-search-form>
              
          </div>
         </div>
